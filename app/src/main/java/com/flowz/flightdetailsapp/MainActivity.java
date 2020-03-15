@@ -5,14 +5,17 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import static com.flowz.flightdetailsapp.util.Constant.MAPVIEW_BUNDLE_KEY;
 
@@ -61,8 +64,28 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap map) {
 
         LatLng ChosenPlace = new LatLng(4.8156, 7.0498);
+        LatLng ChosenPlace2 = new LatLng(9.072264, 7.491302);
+
+
+
         map.addMarker(new MarkerOptions().position((ChosenPlace)).title("ChosenPlace"));
         map.moveCamera(CameraUpdateFactory.newLatLng(ChosenPlace));
+        map.addPolyline(new PolylineOptions()
+        .clickable(true)
+        .add(ChosenPlace)
+        .add(ChosenPlace2)
+        .width(8f)
+        .color(getResources().getColor(R.color.colorAccent))
+        );
+
+        map.addCircle(new CircleOptions()
+        .center(ChosenPlace2)
+        .radius(20000.0)
+        .strokeWidth(3f)
+        .strokeColor(getResources().getColor(R.color.colorAccent))
+        .fillColor(getResources().getColor(R.color.colorAccent1)));
+
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
