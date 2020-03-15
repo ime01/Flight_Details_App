@@ -3,43 +3,84 @@ package com.flowz.flightdetailsapp.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 public class Flight {
 
-    @SerializedName("status")
+    @SerializedName("Departure")
     @Expose
-    private String status;
-
-    @SerializedName("totalResult")
+    private Departure departure;
+    @SerializedName("Arrival")
     @Expose
-    private int totalResult;
-
-    @SerializedName("planes")
+    private Arrival arrival;
+    @SerializedName("MarketingCarrier")
     @Expose
-    private List<Planes> planes;
+    private MarketingCarrier marketingCarrier;
+    @SerializedName("OperatingCarrier")
+    @Expose
+    private OperatingCarrier operatingCarrier;
+    @SerializedName("Equipment")
+    @Expose
+    private Equipment equipment;
+    @SerializedName("FlightStatus")
+    @Expose
+    private FlightStatus flightStatus;
+    @SerializedName("ServiceType")
+    @Expose
+    private String serviceType;
 
-    public String getStatus() {
-        return status;
+    public Departure getDeparture() {
+        return departure;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDeparture(Departure departure) {
+        this.departure = departure;
     }
 
-    public int getTotalResult() {
-        return totalResult;
+    public Arrival getArrival() {
+        return arrival;
     }
 
-    public void setTotalResult(int totalResult) {
-        this.totalResult = totalResult;
+    public void setArrival(Arrival arrival) {
+        this.arrival = arrival;
     }
 
-    public List<Planes> getPlanes() {
-        return planes;
+    public MarketingCarrier getMarketingCarrier() {
+        return marketingCarrier;
     }
 
-    public void setPlanes(List<Planes> planes) {
-        this.planes = planes;
+    public void setMarketingCarrier(MarketingCarrier marketingCarrier) {
+        this.marketingCarrier = marketingCarrier;
     }
+
+    public OperatingCarrier getOperatingCarrier() {
+        return operatingCarrier;
+    }
+
+    public void setOperatingCarrier(OperatingCarrier operatingCarrier) {
+        this.operatingCarrier = operatingCarrier;
+    }
+
+    public Equipment getEquipment() {
+        return equipment;
+    }
+
+    public void setEquipment(Equipment equipment) {
+        this.equipment = equipment;
+    }
+
+    public FlightStatus getFlightStatus() {
+        return flightStatus;
+    }
+
+    public void setFlightStatus(FlightStatus flightStatus) {
+        this.flightStatus = flightStatus;
+    }
+
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+
 }
