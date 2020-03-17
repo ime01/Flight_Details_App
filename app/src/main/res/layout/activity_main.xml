@@ -4,11 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="100">
+
+
+                <EditText
+                    android:id="@+id/entered_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter City"/>
+
+                <Button
+                    android:id="@+id/get_flight_schedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Get Flight Schedule"/>
+
+                <TextView
+                    android:id="@+id/display_flight_schedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Flight Schedule will be shown here"
+                    android:textSize="16sp"
+                    android:text=""/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -17,6 +39,7 @@
             android:id="@+id/user_list_recycler_view">
 
         </androidx.recyclerview.widget.RecyclerView>
+
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -5,15 +5,24 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClientInstance {
 
-    private static final  String BASE_URL = "https://api.lufthansa.com/v1/operations/flightstatus/route/FRA/JFK/2020-03-18?serviceType=passenger";
+    public static Retrofit retrofit;
+
+    private static final  String BASE_URL = "https://api.lufthansa.com/";
+
+   // private static final  String BASE_URL = "https://api-test.lufthansa.com/";
+
+
+
 
     public static Retrofit getRetrofitInstance(){
+                if (retrofit==null){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        return retrofit;
+                   retrofit = new Retrofit.Builder()
+                            .baseUrl(BASE_URL)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                }return retrofit;
+
     }
 
 
